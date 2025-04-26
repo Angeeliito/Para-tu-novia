@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Amor ❤️</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #6a0dad 0%, #4b0082 100%);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+      color: white;
+    }
+
+    .background-heart {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background: red;
+      transform: rotate(45deg);
+      opacity: 0.5;
+      animation: floatHeart 6s infinite;
+    }
+    .background-heart::before, .background-heart::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: red;
+      border-radius: 50%;
+    }
+    .background-heart::before {
+      top: -20px;
+      left: 0;
+    }
+    .background-heart::after {
+      left: -20px;
+      top: 0;
+    }
+    @keyframes floatHeart {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 0.5;
+      }
+      100% {
+        transform: translateY(-200vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    .tarjeta {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 40px 50px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      width: 90%;
+      max-width: 500px;
+      animation: aparecer 2s ease forwards;
+      opacity: 0;
+      border: 2px solid #ff4d6d;
+      overflow: hidden;
+    }
+
+    @keyframes aparecer {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .tarjeta h1 {
+      color: #ff4d6d;
+      margin-bottom: 15px;
+      font-size: 3em;
+      animation: latir 1.5s infinite;
+    }
+
+    @keyframes latir {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .tarjeta p {
+      color: #333;
+      font-size: 1.4em;
+      margin-bottom: 25px;
+      line-height: 1.5;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+
+    .boton {
+      display: inline-block;
+      padding: 15px 35px;
+      background: #ff4d6d;
+      color: white;
+      border: none;
+      border-radius: 35px;
+      cursor: pointer;
+      font-size: 1.3em;
+      text-decoration: none;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .boton:hover {
+      background: #ff1e44;
+      transform: scale(1.1);
+    }
+
+    .brillo {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.8);
+      animation: brillar 3s infinite;
+    }
+    @keyframes brillar {
+      0% {
+        transform: scale(1);
+        opacity: 0.4;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0.4;
+      }
+    }
+
+    .mensaje-final {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #660033;
+      font-weight: bold;
+      opacity: 0;
+      animation: mostrarMensajeFinal 3s forwards;
+    }
+
+    @keyframes mostrarMensajeFinal {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .boton-mas {
+      position: absolute;
+      padding: 15px 35px;
+      background: #ff4d6d;
+      color: white;
+      border: none;
+      border-radius: 35px;
+      cursor: pointer;
+      font-size: 1.3em;
+      transition: transform 0.3s ease;
+      z-index: 10;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .particula {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #ff4d6d;
+      border-radius: 50%;
+      animation: flotar 5s infinite;
+    }
+
+    @keyframes flotar {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+      }
+    }
+
+    .fondo-corazon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      animation: girarFondo 10s infinite linear;
+    }
+
+    @keyframes girarFondo {
+      0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+
+    .particle {
+      position: absolute;
+      background-color: #ff3366;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: particleAnimation 4s infinite ease-in-out;
+    }
+
+    @keyframes particleAnimation {
+      0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(-100px) scale(1.2);
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(0) scale(0.5);
+        opacity: 1;
+      }
+    }
+
+    .moon {
+      position: absolute;
+      top: 10%;
+      right: 10%;
+      width: 100px;
+      height: 100px;
+      background-color: #ffcc00;
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: glow 4s infinite ease-in-out;
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        opacity: 0.6;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+
+    .star {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      width: 5px;
+      height: 5px;
+      background-color: #fff;
+      border-radius: 50%;
+      animation: twinkle 2s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+    }
+
+    .hecho {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.2em;
+      color: #ff4d6d;
+      font-weight: bold;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="background-heart" style="top: 10%; left: 10%; animation-duration: 6s;"></div>
+  <div class="background-heart" style="top: 30%; left: 80%; animation-duration: 6s;"></div>
+  <div class="background-heart" style="top: 50%; left: 20%; animation-duration: 6s;"></div>
+  <div class="background-heart" style="top: 70%; left: 50%; animation-duration: 6s;"></div>
+
+  <div class="particula" style="top: 10%; left: 15%; animation-duration: 7s;"></div>
+  <div class="particula" style="top: 30%; left: 50%; animation-duration: 8s;"></div>
+  <div class="particula" style="top: 50%; left: 80%; animation-duration: 6s;"></div>
+  <div class="particula" style="top: 70%; left: 25%; animation-duration: 9s;"></div>
+
+  <div class="moon"></div>
+
+  <div class="star" style="top: 15%; left: 40%;"></div>
+  <div class="star" style="top: 35%; left: 60%;"></div>
+  <div class="star" style="top: 50%; left: 70%;"></div>
+
+  <div class="tarjeta">
+    <h1>¡Te Amo! ❤️</h1>
+    <p>Eres mi persona favorita en el mundo. Gracias por cada momento que compartimos juntos. Tu amor es mi mejor medicina para vivir Gracias por todo.</p>
+    <a href="#" class="boton" onclick="mostrarMensaje()">Dale aqui aver que pasa no? A lo mejor te llevas una sorpresa</a>
+
+    <div class="mensaje-final">
+      <p>Bueno, mi vida, acabamos de tener una de las peleas más grandes de toda nuestra relación. Perdón ante todo por hacerte pensar que esto se acababa, nunca he querido eso ni mucho menos. Siempre has sido mi vida y me siento vacío sin ti. Espero que me perdones por todo y sé que no es mucho, pero programar todo esto me ha costado mucho. Espero que te guste. Te amo muchísimo, gorda. Aunque me va a costar confiar en en ti despues de todo espero que sea facil❤️</p>
+    </div>
+
+    <div class="boton-mas" id="botonMas" onclick="moverYCambiarTexto(event)">Yo más ❤️</div>
+
+    <div class="hecho">
+      Hecho por el amor de tu vida 🩶💍
+    </div>
+  </div>
+
+  <script>
+    const mensajes = [
+      "Por más días con Salvi.❤️",
+      "Por más días con tu familia. 👨‍👩‍👧‍👦💖",
+      "Por más días siendo feliz a tu lado. 🩶💍",
+      "Por nosotros.",
+      "Por mas dias sin peleas."
+    ];
+
+    function mostrarMensaje() {
+      const p = document.querySelector('.tarjeta p');
+      const random = Math.floor(Math.random() * mensajes.length);
+      p.textContent = mensajes[random];
+    }
+
+    for (let i = 0; i < 50; i++) {
+      const brillo = document.createElement('div');
+      brillo.className = 'brillo';
+      brillo.style.left = Math.random() * 100 + 'vw';
+      brillo.style.top = Math.random() * 100 + 'vh';
+      brillo.style.width = (10 + Math.random() * 20) + 'px';
+      brillo.style.height = brillo.style.width;
+      brillo.style.animationDuration = (3 + Math.random() * 3) + 's';
+      document.body.appendChild(brillo);
+    }
+
+    const botonMas = document.getElementById("botonMas");
+    const tarjeta = document.querySelector('.tarjeta');
+    const tarjetaRect = tarjeta.getBoundingClientRect();
+
+    function moverYCambiarTexto(event) {
+      let botonRect = botonMas.getBoundingClientRect();
+      let x = event.clientX - tarjetaRect.left - botonRect.width / 2;
+      let y = event.clientY - tarjetaRect.top - botonRect.height / 2;
+
+      x = Math.max(0, Math.min(x, tarjetaRect.width - botonRect.width));
+      y = Math.max(0, Math.min(y, tarjetaRect.height - botonRect.height));
+
+      botonMas.style.transition = "transform 0.3s ease-in-out";
+      botonMas.style.transform = `translate(${x}px, ${y}px)`;
+
+      botonMas.textContent = "Te amo más 🥰";
+    }
+  </script>
+</body>
+</html>
